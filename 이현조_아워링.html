@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아워링 Ouring — PLAY SOPT 39th PLAN Pitch Deck</title>
+<meta name="description" content="시간 기반 재능 교환 서비스 '아워링' 발표자료 · HYUN JO LEE">
+<meta property="og:title" content="아워링 Ouring — Pitch Deck">
+<meta property="og:description" content="시간 기반 재능 교환 서비스 '아워링'">
+<meta property="og:image" content="slides/02.webp">
+<style>
+  :root { --bg:#000; --fg:#e8f4f2; --accent:#7fd8cc; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; background:var(--bg); color:var(--fg);
+    font-family:-apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; overflow:hidden; }
+  .stage { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
+  .slide { position:absolute; width:min(100vw, calc(100vh * 16 / 9)); aspect-ratio:16/9;
+    opacity:0; visibility:hidden; transition:opacity .35s ease; }
+  .slide.active { opacity:1; visibility:visible; }
+  .slide img { width:100%; height:100%; display:block; user-select:none; -webkit-user-drag:none; }
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .qr-link { position:absolute; left:12.9%; top:46.6%; width:20.5%; height:36.5%; border-radius:2%; cursor:pointer; }
+  .qr-link:focus-visible { outline:3px solid var(--accent); }
+  .nav { position:fixed; top:0; bottom:0; width:22%; background:none; border:0; cursor:pointer; z-index:2; }
+  .nav.prev { left:0; } .nav.next { right:0; }
+  .hud { position:fixed; left:50%; bottom:max(14px, env(safe-area-inset-bottom)); transform:translateX(-50%);
+    display:flex; gap:6px; align-items:center; padding:7px 12px; border-radius:999px; z-index:3;
+    background:rgba(20,28,28,.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    font-size:13px; transition:opacity .4s; }
+  .hud.hide { opacity:0; pointer-events:none; }
+  .hud button { background:none; border:0; color:var(--fg); font:inherit; cursor:pointer; padding:4px 8px; border-radius:6px; }
+  .hud button:hover { background:rgba(255,255,255,.1); }
+  .count { min-width:48px; text-align:center; font-variant-numeric:tabular-nums; }
+  .bar { position:fixed; left:0; top:0; height:2px; background:var(--accent); z-index:3; transition:width .35s; }
+  /* 세로 모바일: 모든 슬라이드를 세로 스크롤로 표시 */
+  @media (orientation:portrait) and (max-width:820px) {
+    html, body { overflow:auto; }
+    .stage { position:static; display:block; padding:12px 0 80px; }
+    .slide { position:relative; width:100%; opacity:1; visibility:visible; margin-bottom:10px; }
+    .nav, .hud, .bar { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<main class="stage" id="stage">
+  <section class="slide" aria-label="1 / 9">
+    <img src="slides/01.webp" alt="QR코드를 스캔해 아워링을 경험하세요" fetchpriority="high">
+    <a class="qr-link" href="https://ouring-app.netlify.app" target="_blank" rel="noopener" aria-label="아워링 프로토타입 체험하기"></a>
+    <div class="sr">PLAY SOPT 39th - PLAN Pitch Deck. 시간 기반 재능 교환 서비스 '아워링'. QR코드를 스캔해 아워링을 경험하세요. 카메라로 찍어보세요. QR을 찍으면 체험 모드로 열려요. HYUN JO LEE</div>
+  </section>
+  <section class="slide" aria-label="2 / 9">
+    <img src="slides/02.webp" alt="Ouring — 시간 기반 재능 교환 서비스 아워링">
+  </section>
+  <section class="slide" aria-label="3 / 9">
+    <img src="slides/03.webp" alt="01 PROBLEM — 배우고 싶은데, 연결은 비싸고 어렵다" loading="lazy">
+    <div class="sr">비싸다: 숨고 성인 1:1 영어 과외 3시간 약 12만 원, 1:1 화상영어 캠블리 한달 약 40만 원. 어렵다: 게시글을 하나하나 찾아봐야 해서 배우고 싶은 걸 알려줄 사람을 찾는게 오래 걸려요. 상대방이 실제로 얼마나 잘하는 사람인지 알 수 없어서 만나도 괜찮을지 걱정돼요. 서로 배우고 싶은 게 다르면 교환이 안 되니까 조건이 맞는 사람을 찾기가 어려워요.</div>
+  </section>
+  <section class="slide" aria-label="4 / 9">
+    <img src="slides/04.webp" alt="02 TARGET" loading="lazy">
+    <div class="sr">메인 타겟: 새로운 실무 역량을 배우고 싶지만 비용 부담과 매칭의 어려움을 겪는 20대 대학생·취업준비생. 서브 타겟: 자신의 전문성을 활용해 필요한 역량을 교환하고 싶은 20~30대 주니어 직장인·프리랜서.</div>
+  </section>
+  <section class="slide" aria-label="5 / 9">
+    <img src="slides/05.webp" alt="03 SOLUTION — 아워링, 필요한 재능을 싸고 쉽게 연결하다" loading="lazy">
+    <div class="sr">싸진다: 1:1 영어과외 3시간 약 12만원 → 내 시간 3시간으로. 1:1 화상영어 한 달 약 40만원 → 내 시간으로 교환. 쉬워진다: 1 검색 한 번으로 바로 찾아요. 2 배지로 확인해서 안심해요. 3 서로 맞는 사람을 연결해요.</div>
+  </section>
+  <section class="slide" aria-label="6 / 9">
+    <img src="slides/06.webp" alt="04 MARKET SIGNAL (1) — 재능교환은 증가 중, 인터뷰이 5명 모두 필요하다" loading="lazy">
+    <div class="sr">당근 재능교환 게시글, 전년 동기 대비 약 58% 증가 (2024.01-02 대비 2025.01-02). 2-30대 5명 인터뷰: "재능 교환할 사람을 찾는게 어려웠다", "재능교환 전문 플랫폼이 있으면 좋겠다".</div>
+  </section>
+  <section class="slide" aria-label="7 / 9">
+    <img src="slides/07.webp" alt="04 MARKET SIGNAL (2) — 1일 인스타그램 광고, 링크클릭율 2.4% / 출시 알림신청 5명" loading="lazy">
+    <div class="sr">광고 기간 약 24시간, 총 광고비 35,837원, 총 노출 4,670회, 링크 클릭율 2.4%, 출시 알림신청 5명, 조회 대비 신청률 5.2%. 105명 링크 클릭 → 97회 랜딩 조회 → 5명 알림 신청.</div>
+  </section>
+  <section class="slide" aria-label="8 / 9">
+    <img src="slides/08.webp" alt="05 CONCERN — 아워링이 풀어야 할 다음 문제들" loading="lazy">
+    <div class="sr">1 시장 수요 검증, 2 초기 매칭의 어려움, 3 공평성과 신뢰. 조언받고 싶은 점: 시장 수요 검증 방법과 초기 매칭 전략, 공정하고 신뢰할 수 있는 재능교환 구조.</div>
+  </section>
+  <section class="slide" aria-label="9 / 9">
+    <img src="slides/09.webp" alt="누구나 가진 재능으로 새로운 배움을 시작하도록, 아워링" loading="lazy">
+  </section>
+</main>
+<button class="nav prev" id="prev" aria-label="이전 슬라이드"></button>
+<button class="nav next" id="next" aria-label="다음 슬라이드"></button>
+<div class="hud" id="hud">
+  <button id="bPrev" aria-label="이전">←</button>
+  <span class="count" id="count">1 / 9</span>
+  <button id="bNext" aria-label="다음">→</button>
+  <button id="bFull" aria-label="전체화면">⛶</button>
+</div>
+<script>
+(() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  const n = slides.length, count = document.getElementById('count'),
+        bar = document.getElementById('bar'), hud = document.getElementById('hud');
+  let i = Math.min(Math.max((parseInt(location.hash.slice(1)) || 1) - 1, 0), n - 1);
+  function show(k) {
+    i = Math.min(Math.max(k, 0), n - 1);
+    slides.forEach((s, j) => s.classList.toggle('active', j === i));
+    count.textContent = (i + 1) + ' / ' + n;
+    bar.style.width = ((i + 1) / n * 100) + '%';
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  const go = d => show(i + d);
+  document.getElementById('prev').onclick = document.getElementById('bPrev').onclick = () => go(-1);
+  document.getElementById('next').onclick = document.getElementById('bNext').onclick = () => go(1);
+  document.getElementById('bFull').onclick = () => {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen?.();
+  };
+  addEventListener('keydown', e => {
+    if (['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)) { e.preventDefault(); go(1); }
+    else if (['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)) { e.preventDefault(); go(-1); }
+    else if (e.key === 'Home') show(0);
+    else if (e.key === 'End') show(n - 1);
+    else if (e.key === 'f' || e.key === 'F') document.getElementById('bFull').click();
+  });
+  let x0 = null;
+  addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
+  addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    x0 = null;
+  });
+  let t;
+  const wake = () => { hud.classList.remove('hide'); clearTimeout(t); t = setTimeout(() => hud.classList.add('hide'), 2500); };
+  addEventListener('mousemove', wake); wake();
+  // 다음 슬라이드 미리 불러오기
+  slides.forEach(s => { const im = s.querySelector('img'); if (im.loading === 'lazy') new Image().src = im.src; });
+  show(i);
+})();
+</script>
+</body>
+</html>
